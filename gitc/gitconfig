@@ -1,0 +1,9 @@
+[user]
+	email = meng_qingpu@126.com
+	name = mengqp
+[oh-my-zsh]
+	hide-status = 1
+[core]
+	autocrlf = false
+	editor = vim
+	quotepath = false
