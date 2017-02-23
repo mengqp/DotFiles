@@ -22,7 +22,7 @@ then
             sudo apt-get update
             sudo apt-get install neovim
             sudo apt-get install python-dev python-pip python3-dev python3-pip
-            pip install --upgrade pip
+            sudo pip install --upgrade pip
             sudo pip2 install --upgrade neovim
             sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
             sudo update-alternatives --config vim
@@ -44,12 +44,13 @@ then
                 echo ".oh-my-zsh installed"
             else
                 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+                cd zsh
+                symlink 'zshrc'
+                symlink 'zshenv'
+
+                chsh -s /bin/zsh
             fi
 
-            cd zsh
-            symlink 'zshrc'
-
-            chsh -s /bin/zsh
             exit 0
             ;;
         emacs)
@@ -103,13 +104,13 @@ then
 
 			      exit 0
 			      ;;
-			  
+
 		    rime)
             sudo add-apt-repository ppa:lotem/rime
             sudo apt-get update
             sudo apt-get install ibus-rime
-            sudo apt-get install librime-data-wubi 
-            # 去修改.config/ibus/rime/defaut-yaml 
+            sudo apt-get install librime-data-wubi
+            # 去修改.config/ibus/rime/defaut-yaml
 			      exit 0
 			      ;;
 
@@ -125,4 +126,3 @@ then
 			      ;;
 		esac
 fi
-

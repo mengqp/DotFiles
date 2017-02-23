@@ -1,5 +1,9 @@
 
+;; 去除一个警告
+(setq exec-path-from-shell-check-startup-files nil)
 
+;; 清楚白块
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; 输入法切换时不出现问题
 (global-set-key (kbd "C-SPC") nil)
@@ -39,6 +43,7 @@
               (sequence "BUG(b@/!)"  "|"  "BUGFIXD(B@/!)"  )
               (sequence "FEATURE(f@/!)" "|"  "FEATUREFINISH(F@/!)" )
               (sequence "RELEASE(r@/!)" "|" "CANCELLED(c@/!)")
+              (sequence "ISSUE(i!/!)" "|" "ISSUECLOSE(I@/!)")
               )))
 
 ;; 设置jk也是escape
