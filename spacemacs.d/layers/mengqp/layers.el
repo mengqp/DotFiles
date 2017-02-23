@@ -5,6 +5,7 @@
                                       better-defaults
                                       colors
                                       org
+                                      markdown
                                       (git :variables
                                            git-magit-status-fullscreen t)
                                       (shell :variables shell-default-shell 'eshell)
@@ -20,7 +21,7 @@
                                       ;; 自已在网上找的
                                       unicad
                                       mengqp-google-c-style
-                                      ;; mengqp-chinese-pyim
+                                      ;;mengqp-chinese-pyim
                                       ;;google-c-style
 
                                       ))

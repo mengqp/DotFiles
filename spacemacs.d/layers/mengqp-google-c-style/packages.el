@@ -80,19 +80,17 @@ Each entry is either:
     (progn
       (defun my-c-mode-hook ()
         (setq c-basic-offset 4          ;; 基本缩进宽度
-              indent-tabs-mode nil        ;; 禁止空格替换Tab
+              indent-tabs-mode nil       ;; 禁止空格替换Tab
               default-tab-width 4
               ))     ;; 默认Tab宽度
       )))
 
+(add-hook 'c-mode-common-hook 'my-c-mode-hook)
+(add-hook 'c++-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
-;; (add-hook 'c-mode-common-hook 'my-c-mode-hook)
 ; (add-hook 'c++-mode-common-hook 'google-set-c-style)
 ; (add-hook 'c++-mode-common-hook 'google-make-newline-indent)
-; (add-hook 'c++-mode-common-hook 'my-c-mode-hook)
 
 
 ;;; packages.el ends here
-
-

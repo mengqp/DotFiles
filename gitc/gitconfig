@@ -7,3 +7,5 @@
 	autocrlf = false
 	editor = vim
 	quotepath = false
+[credential]
+	helper = store
