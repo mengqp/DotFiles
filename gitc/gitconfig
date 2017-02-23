@@ -5,7 +5,7 @@
 	hide-status = 1
 [core]
 	autocrlf = false
-	editor = vim
+	editor = nvim
 	quotepath = false
 [credential]
 	helper = store
