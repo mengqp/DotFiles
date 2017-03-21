@@ -4,7 +4,8 @@
                                       ivy
                                       better-defaults
                                       colors
-                                      org
+                                      (org :variables
+                                           org-projectile-file "readme.org")
                                       markdown
                                       (git :variables
                                            git-magit-status-fullscreen t)

@@ -9,7 +9,7 @@
 (global-set-key (kbd "C-SPC") nil)
 
 ;; 设置字体
-(setq-default dotspacemacs-default-font '("Source Code Pro"
+(setq-default dotspacemacs-default-font '("Source Code Pro Regular"
                                           :size 15
                                           :weight normal
                                           :width normal
@@ -43,7 +43,7 @@
               (sequence "BUG(b@/!)"  "|"  "BUGFIXD(B@/!)"  )
               (sequence "FEATURE(f@/!)" "|"  "FEATUREFINISH(F@/!)" )
               (sequence "RELEASE(r@/!)" "|" "CANCELLED(c@/!)")
-              (sequence "ISSUE(i!/!)" "|" "ISSUECLOSE(I@/!)")
+              (sequence "ISSUE(i@/!)" "|" "ISSUECLOSE(I@/!)")
               )))
 
 ;; 设置jk也是escape
