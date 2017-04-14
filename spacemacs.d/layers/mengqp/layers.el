@@ -1,7 +1,6 @@
 
 (configuration-layer/declare-layers '(
-                                      helm
-                                      ivy
+                                      ;; ivy
                                       better-defaults
                                       colors
                                       (org :variables
@@ -28,8 +27,7 @@
                                       ))
 
 (configuration-layer/remove-layers '(
-
-
+                                     ;; helm
 
                                      )
 

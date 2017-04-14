@@ -24,6 +24,28 @@
 ;; 设置company
 (add-hook 'after-init-hook 'global-company-mode)
 
+;;启用时间显示设置，在minibuffer上面的那个杠上
+(display-time-mode 1)
+(defface egoge-display-time
+  '((((type x w32 mac))
+     ;; #060525 is the background colour of my default face.
+     (:foreground "#060525" :inherit bold))
+    (((type tty))
+     (:foreground "blue")))
+
+  "Face used to display the time in the mode line.")
+
+;; This causes the current time in the mode line to be displayed in
+;; `egoge-display-time-face' to make it stand out visually.
+(setq display-time-string-forms
+      '((propertize (concat " " 24-hours ":" minutes " ")
+                    'face 'egoge-display-time)))
+
+
+(which-function-mode)
+(setq-default header-line-format
+              '((which-func-mode ("" which-func-format " "))))
+
 ;; ycmd
 (set-variable 'ycmd-server-command '("python" "/home/mengqp/DotFiles/ycmd/ycmd"))
 (set-variable 'ycmd-global-config "~/DotFiles/ycmd/cpp/ycm/.ycm_extra_conf.py")
