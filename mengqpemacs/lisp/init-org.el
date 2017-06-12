@@ -1,63 +1,5 @@
 
-;; 去除一个警告
-(setq exec-path-from-shell-check-startup-files nil)
-
-;; 清楚白块
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-;; 输入法切换时不出现问题
-(global-set-key (kbd "C-SPC") nil)
-
-;; 设置字体
-(setq-default dotspacemacs-default-font '("Source Code Pro Regular"
-                                          :size 15
-                                          :weight normal
-                                          :width normal
-                                          :powerline-scale 1.1))
-
-;; 设置相对行数 我的电脑有点卡
-(setq-default dotspacemacs-line-numbers 'relative)
-
-; 去除 M-x 里面的 ^
-(setq ivy-initial-inputs-alist nil)
-
-;; 设置company
-(add-hook 'after-init-hook 'global-company-mode)
-
-;;启用时间显示设置，在minibuffer上面的那个杠上
-(display-time-mode 1)
-(defface egoge-display-time
-  '((((type x w32 mac))
-     ;; #060525 is the background colour of my default face.
-     (:foreground "#060525" :inherit bold))
-    (((type tty))
-     (:foreground "blue")))
-
-  "Face used to display the time in the mode line.")
-
-;; This causes the current time in the mode line to be displayed in
-;; `egoge-display-time-face' to make it stand out visually.
-(setq display-time-string-forms
-      '((propertize (concat " " 24-hours ":" minutes " ")
-                    'face 'egoge-display-time)))
-
-
-(which-function-mode)
-(setq-default header-line-format
-              '((which-func-mode ("" which-func-format " "))))
-
-;; ycmd
-(set-variable 'ycmd-server-command '("python" "/home/mengqp/DotFiles/ycmd/ycmd"))
-(set-variable 'ycmd-global-config "~/DotFiles/ycmd/cpp/ycm/.ycm_extra_conf.py")
-(setq ycmd-extra-conf-handler (quote load))
-(add-hook 'c-mode-hook 'ycmd-mode)
-(add-hook 'c++-mode-hook 'ycmd-mode)
-;; (add-hook 'after-init-hook 'global-ycmd-mode)
-(add-hook 'after-init-hook 'yas-global-mode)
-
- ;; custom
-(setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
-(load custom-file 'no-error 'no-message)
+(require 'org)
 
 (setq org-tag-alist '(("@bug" . ?b) ("@feature" . ?f) ("@repeat" . ?r) ("@invalid" . ?i) ("@wontfix" . ?w) ("@discuss" . ?d) ("@suspend" . ?s) ("@close" . ?c) ("@Fixed" . ?F)))
 ;; 不同tag外观
@@ -131,12 +73,4 @@
                                    (eq buffer-read-only nil))
                           (eos/org-add-ids-to-headlines-in-file))))))
 
-
-;; 设置jk也是escape
-(setq-default evil-escape-key-sequence "jk")
-(setq-default evil-escape-delay 0.2)
-
-;; 设置了这一句可以编org-present 不知道什么原因
-(setq package-check-signature nil)
-
-;; (defalias 'display-buffer-in-major-side-window 'window--make-major-side-window)
+(provide 'init-org)
