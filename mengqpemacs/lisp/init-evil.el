@@ -4,8 +4,6 @@
 
 ;;开启C-x C-A可用 分别用C-c +/-代替
 (require 'evil-numbers)
-;; (global-set-key (kbd "C-c +") 'evil-numbers/inc-at-pt)
-;; (global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)
 
 ;;
 ;; (require 'evil-leader)
@@ -88,5 +86,7 @@
 
 
 (define-key evil-normal-state-map (kbd "C-]") 'helm-cscope-find-this-symbol)
+(define-key evil-normal-state-map (kbd "+") 'evil-numbers/inc-at-pt)
+(define-key evil-normal-state-map (kbd "-") 'evil-numbers/dec-at-pt)
 
 (provide 'init-evil)
