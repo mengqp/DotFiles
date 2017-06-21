@@ -1,1 +1,0 @@
-("~/DotFiles/" "/media/sf_code/em770/" "~/emacs.d/" "/media/sf_code/code/sharelinux/")
