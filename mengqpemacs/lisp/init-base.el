@@ -1,5 +1,6 @@
 ;;这就一个进行基本配置的文件
 (require 'init-coding)
+(require 'unicad)
 
 ;; 去除一个警告
 (setq exec-path-from-shell-check-startup-files nil)
@@ -18,7 +19,7 @@
                                           :powerline-scale 1.1))
 
 ;; 设置相对行数 我的电脑有点卡
-(setq-default dotspacemacs-line-numbers 'relative)
+;; (setq-default dotspacemacs-line-numbers 'relative)
 
 ; 去除 M-x 里面的 ^
 (setq ivy-initial-inputs-alist nil)
@@ -41,12 +42,10 @@
 ;;                     'face 'egoge-display-time)))
 
 
-(which-function-mode)
-(setq-default header-line-format
-              '((which-func-mode ("" which-func-format " "))))
+;; (which-function-mode)
+;; (setq-default header-line-format
+;;               '((which-func-mode ("" which-func-format " "))))
 
-;; 去掉滚动条
-(set-scroll-bar-mode -1)
 
 ;;关闭开启画面
 (setq inhibit-startup-message t)
@@ -70,7 +69,7 @@
 (show-paren-mode t)
 
 ;;在标题栏提示位置
-(setq frame-title-format "emacs@%b")
+;; (setq frame-title-format "emacs@%b")
 
 ;;不产生备份
 (setq make-backup-files nil)
@@ -78,20 +77,20 @@
 (setq backup-inhibited t)
 
 ;;显示时间设置
-(display-time-mode 1);;启用时间显示设置，在minibuffer上面的那个杠上
-(setq display-time-24hr-format t);;时间使用24小时制
-(setq display-time-day-and-date t);;时间显示包括日期和具体时间
+;; (display-time-mode 1);;启用时间显示设置，在minibuffer上面的那个杠上
+;; (setq display-time-24hr-format t);;时间使用24小时制
+;; (setq display-time-day-and-date t);;时间显示包括日期和具体时间
 
 
 ;;显示行列号
 ;(setq column-number-mode t)
 ;(setq line-number-mode t)
-(global-linum-mode t)
+;; (global-linum-mode t)
 
 ;;tabs用空格表示
-(setq-default indent-tabs-mode nil)
-(setq tab-width 4)
-(setq c-basic-offset 4)
+;; (setq-default indent-tabs-mode nil)
+;; (setq tab-width 4)
+;; (setq c-basic-offset 4)
 
 ;;80列
 (require 'whitespace)
@@ -113,14 +112,14 @@
 ;; 最近的文件
 (require 'recentf)
 (recentf-mode 1)
-(setq recentf-max-menu-items 25)
-(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+(setq recentf-max-menu-items 10000)
 
 ;;设置字体
 ;; (set-default-font "Courier New-14")
 
 ;;文件在改变时自动加载
 (global-auto-revert-mode t)
+
 
 
 ;;设置选中状态下的删除功能

@@ -6,8 +6,13 @@
 ;; 设置等待时间
 (setq company-idle-delay 0.08)
 ;; 补全起始长度
-(setq company-minimum-prefix-length 1)
+(setq company-minimum-prefix-length 2)
 
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
 ;;颜色
 ;; (require 'color)

@@ -1,6 +1,8 @@
 
 (require 'org)
 
+(setq org-src-fontify-natively t)
+
 (setq org-tag-alist '(("@bug" . ?b) ("@feature" . ?f) ("@repeat" . ?r) ("@invalid" . ?i) ("@wontfix" . ?w) ("@discuss" . ?d) ("@suspend" . ?s) ("@close" . ?c) ("@Fixed" . ?F)))
 ;; 不同tag外观
 (setq org-tag-faces

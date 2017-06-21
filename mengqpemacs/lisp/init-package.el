@@ -6,65 +6,52 @@
   "By default, HTTP is used to download packages.
 But you may use safer HTTPS instead.")
 
-;; List of VISIBLE packages from melpa-unstable (http://melpa.org)
-;; Feel free to add more packages!
-;; (defvar melpa-include-packages
-;;   '(ace-mc
-;;     bbdb
+;; (defvar mengqp/packages
+;;   '(
+;;     undo-tree
+;;     general
 ;;     color-theme
-;;     js-doc
-;;     ;; {{ since stable v0.9.1 released, we go back to stable version
-;;     ;; ivy
-;;     ;; counsel
-;;     ;; swiper ; abo-abo has not released 9.0 yet, at least he didn't tag master branch
-;;     ;; }}
-;;     wgrep
-;;     robe
-;;     groovy-mode
-;;     inf-ruby
-;;     company ; I won't wait another 2 years for stable
-;;     simple-httpd
-;;     dsvn
-;;     move-text
-;;     string-edit ; looks magnars don't update stable tag frequently
-;;     findr
-;;     mwe-log-commands
-;;     yaml-mode
-;;     noflet
-;;     db
-;;     creole
-;;     web
-;;     idomenu
-;;     buffer-move
-;;     regex-tool
-;;     quack
-;;     legalese
-;;     htmlize
-;;     scratch
-;;     session
-;;     crontab-mode
-;;     bookmark+
-;;     flymake-lua
-;;     multi-term
-;;     dired+
-;;     inflections
-;;     dropdown-list
-;;     lua-mode
-;;     tidy
-;;     pomodoro
-;;     auto-compile
-;;     packed
-;;     gitconfig-mode
-;;     textile-mode
-;;     w3m
-;;     erlang
-;;     workgroups2
-;;     company-c-headers)
-;;   "Don't install any Melpa packages except these packages")
-;; (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-;;                          ("marmalade" . "http://marmalade-repo.org/packages/")
-;;                          ("melpa1" . "http://melpa.org/packages/")
-;;                          ( "elpa-popkit" . "http://elpa.popkit.org/packages")))
+;;     color-theme-solarized
+;;     which-key
+;;     helm
+;;     helm-ag
+;;     helm-cscope
+;;     helm-make
+;;     projectile
+;;     helm-projectile
+;;     org-projectile
+;;     evil
+;;     evil-numbers
+;;     evil-leader
+;;     evil-visualstar
+;;     evil-search-highlight-persist
+;;     evil-matchit
+;;     evil-org
+;;     evil-escape
+;;     evil-nerd-commenter
+;;     xcscope
+;;     company
+;;     flycheck
+;;     flycheck-pos-tip
+;;     google-c-style
+;;     smex
+;;     window-numbering
+;;     ace-jump-mode
+;;     ace-jump-helm-line
+;;     smartparens
+;;     flymake
+;;     hungry-delete
+;;     popwin
+;;     powerline
+;;     yasnippet
+;;     ycmd
+;;     company-ycmd
+;;     flycheck-ycmd
+;;     magit
+;;     evil-magit
+;;     git-gutter
+;;     realgud
+;;     ))
 
 (setq package-archives '(("melpa-cn" . "https://elpa.zilongshanren.com/melpa/")
                           ("org-cn"   . "https://elpa.zilongshanren.com/org/")
@@ -73,57 +60,6 @@ But you may use safer HTTPS instead.")
                           ("melpa-stable" . "https://stable.melpa.org/packages/")
                           ))
 
-;; ;;------------------------------------------------------------------------------
-;; ;; Internal implementation, newbies should NOT touch code below this line!
-;; ;;------------------------------------------------------------------------------
-
-;; ;; Patch up annoying package.el quirks
-;; (defadvice package-generate-autoloads (after close-autoloads (name pkg-dir) activate)
-;;   "Stop package.el from leaving open autoload files lying around."
-;;   (let* ((path (expand-file-name (concat
-;;                                   ;; name is string when emacs <= 24.3.1,
-;;                                   (if (symbolp name) (symbol-name name) name)
-;;                                   "-autoloads.el") pkg-dir)))
-;;     (with-current-buffer (find-file-existing path)
-;;       (kill-buffer nil))))
-
-;; (defun package-filter-function (package version archive)
-;;   "Optional predicate function used to internally filter packages used by package.el.
-
-;;   The function is called with the arguments PACKAGE VERSION ARCHIVE, where
-;;   PACKAGE is a symbol, VERSION is a vector as produced by `version-to-list', and
-;;   ARCHIVE is the string name of the package archive."
-;;   (let* (rlt)
-;;     (cond
-;;      ((string= archive "melpa-stable")
-;;       (setq rlt t)
-;;       ;; don's install `request v0.0.3' which drop suppport of Emacs 24.3
-;;       (if (string= package "request") (setq rlt nil)))
-;;      ((string= archive "melpa")
-;;       (cond
-;;        ;; a few exceptions from unstable melpa
-;;        ((or (memq package melpa-include-packages)
-;;             ;; install all color themes
-;;             (string-match (format "%s" package) "-theme"))
-;;         (setq rlt t))
-;;        (t
-;;         ;; I don't trust melpa which is too unstable
-;;         (setq rlt nil))))
-;;      (t
-;;       ;; other third party repositories I trust
-;;       (setq rlt t)))
-;;     rlt))
-
-;; (defadvice package--add-to-archive-contents
-;;     (around filter-packages (package archive) activate)
-;;   "Add filtering of available packages using `package-filter-function'."
-;;   (if (package-filter-function (car package)
-;;                                (funcall (if (fboundp 'package-desc-version)
-;;                                             'package--ac-desc-version
-;;                                           'package-desc-vers)
-;;                                         (cdr package))
-;;                                archive)
-;;       ad-do-it))
 
 
 ;; On-demand installation of packages
@@ -154,8 +90,14 @@ But you may use safer HTTPS instead.")
 (require-package 'helm)
 (require-package 'helm-ag)
 (require-package 'helm-cscope)
+(require-package 'helm-make)
+(require-package 'helm-projectile)
+
+(require-package 'popup)
 
 
+(require-package 'projectile)
+(require-package 'org-projectile)
 
 (require-package 'evil)
 (require-package 'evil-numbers)
@@ -170,6 +112,7 @@ But you may use safer HTTPS instead.")
 (require-package 'xcscope)
 (require-package 'company)
 
+(require-package 'google-c-style)
 (require-package 'smex)
 
 (require-package 'window-numbering)
@@ -183,6 +126,9 @@ But you may use safer HTTPS instead.")
 (require-package 'hungry-delete)
 (require-package 'popwin)
 (require-package 'powerline)
+(require-package 'spaceline)
+(require-package 'diminish)
+
 
 
 (require-package 'yasnippet)
@@ -196,7 +142,30 @@ But you may use safer HTTPS instead.")
 (require-package 'evil-magit)
 (require-package 'git-gutter)
 
+(require-package 'realgud)
+(require-package 'flycheck-package)
+(require-package 'package-lint)
+(require-package 'helm-c-yasnippet)
+
+
+
+;; (defun mengqp/packages-install ()
+;;   (cl-loop for pkg in mengqp/packages
+;;            when (not (package-installed-p pkg))
+;;            do (return nil)
+;;            finally (return t)
+;;            ))
+
+;; (unless (mengqp/packages-install)
+;;   (message "%s" "Refreshing package database...")
+;;   (package-refresh-contents)
+;;   (dolist (pkg mengqp/packages)
+;;     (when (not (mengqp/package-install pkg))
+;;       (require-package pkg))))
+
 
 
 
 (provide 'init-package)
+
+;;; init-package ends here

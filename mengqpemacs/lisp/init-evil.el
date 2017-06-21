@@ -4,34 +4,33 @@
 
 ;;开启C-x C-A可用 分别用C-c +/-代替
 (require 'evil-numbers)
-(global-set-key (kbd "C-c +") 'evil-numbers/inc-at-pt)
-(global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)
+;; (global-set-key (kbd "C-c +") 'evil-numbers/inc-at-pt)
+;; (global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)
 
 ;;
-(require 'evil-leader)
-(global-evil-leader-mode)
-(evil-leader/set-leader ",")
+;; (require 'evil-leader)
+;; (global-evil-leader-mode)
+;; (evil-leader/set-leader ",")
 
-;;
-;; Vim key bindings
-(require 'evil-leader)
-(global-evil-leader-mode)
-(evil-leader/set-key
-  "ci" 'evilnc-comment-or-uncomment-lines
-  "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
-  "ll" 'evilnc-quick-comment-or-uncomment-to-the-line
-  "cc" 'evilnc-copy-and-comment-lines
-  "cp" 'evilnc-comment-or-uncomment-paragraphs
-  "cr" 'comment-or-uncomment-region
-  "cv" 'evilnc-toggle-invert-comment-line-by-line
-  "\\" 'evilnc-comment-operator ; if you prefer backslash key
-  )
+;; ;;
+;; ;; Vim key bindings
+;; (global-evil-leader-mode)
+;; (evil-leader/set-key
+;;   "ci" 'evilnc-comment-or-uncomment-lines
+;;   "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
+;;   "ll" 'evilnc-quick-comment-or-uncomment-to-the-line
+;;   "cc" 'evilnc-copy-and-comment-lines
+;;   "cp" 'evilnc-comment-or-uncomment-paragraphs
+;;   "cr" 'comment-or-uncomment-region
+;;   "cv" 'evilnc-toggle-invert-comment-line-by-line
+;;   "\\" 'evilnc-comment-operator ; if you prefer backslash key
+;;   )
 
 (require 'evil-visualstar)
 (global-evil-visualstar-mode)
 
-(require 'evil-search-highlight-persist)
-(global-evil-search-highlight-persist t)
+;; (require 'evil-search-highlight-persist)
+;; (global-evil-search-highlight-persist t)
 
 
 ;;实现c-c++代码折叠
@@ -57,7 +56,6 @@
 (global-evil-matchit-mode 1)
 (setq evilmi-ignore-comments nil)
 
-(require 'evil-org)
 
 (require 'evil-escape)
 (evil-escape-mode t)
@@ -89,5 +87,6 @@
 ;;                (set-face-foreground 'mode-line (cdr color))))))
 
 
+(define-key evil-normal-state-map (kbd "C-]") 'helm-cscope-find-this-symbol)
 
 (provide 'init-evil)
