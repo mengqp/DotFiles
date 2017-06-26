@@ -38,8 +38,9 @@
         "gs" 'magit-status
 
 
-        "pf" 'find-file-in-project
+        "pf" 'projectile-find-file
         "pd" 'find-directory-in-project-by-selected
+	"po" 'org-projectile:project-todo-completing-read
 
         "ws" 'split-window-vertically
         "wv" 'split-window-horizontally
@@ -59,6 +60,9 @@
        "-" 'evil-numbers/dec-at-pt
 
        ;;"aa" 'copy-to-x-clipboard ; used frequently
+
+       "bs" 'save-buffer
+
        "eb" 'eval-buffer
        "ee" 'eval-expression
        "el" 'mengqp/toggle-flycheck-error-list
@@ -68,6 +72,7 @@
 
        "fb" 'beginning-of-defun
        "fe" 'end-of-defun
+       "fr" 'recover-this-file
 
        "gg" 'ycmd-goto
        "gs" 'helm-cscope-find-this-symbol

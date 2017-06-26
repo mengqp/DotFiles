@@ -53,11 +53,12 @@ But you may use safer HTTPS instead.")
 ;;     realgud
 ;;     ))
 
-(setq package-archives '(("melpa-cn" . "https://elpa.zilongshanren.com/melpa/")
-                          ("org-cn"   . "https://elpa.zilongshanren.com/org/")
-                          ("gnu-cn"   . "https://elpa.zilongshanren.com/gnu/")
+(setq package-archives '(
+			 ;; ("melpa-cn" . "https://elpa.zilongshanren.com/melpa/")
+                         ;;  ("org-cn"   . "https://elpa.zilongshanren.com/org/")
+                         ;;  ("gnu-cn"   . "https://elpa.zilongshanren.com/gnu/")
                           ("melpa" . "https://melpa.org/packages/")
-                          ("melpa-stable" . "https://stable.melpa.org/packages/")
+                          ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
                           ))
 
 
@@ -84,6 +85,7 @@ But you may use safer HTTPS instead.")
 
 (require-package 'color-theme)
 (require-package 'color-theme-solarized)
+(require-package 'linum-relative)
 
 (require-package 'which-key)
 

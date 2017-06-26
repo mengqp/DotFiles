@@ -19,6 +19,14 @@
                                           :powerline-scale 1.1))
 
 ;; 设置相对行数 我的电脑有点卡
+;;显示行列号
+;(setq column-number-mode t)
+(require 'linum-relative)
+;; (linum-mode t)
+;; (setq line-number-mode t)
+(global-linum-mode t)
+(linum-on)
+(linum-relative-on)
 ;; (setq-default dotspacemacs-line-numbers 'relative)
 
 ; 去除 M-x 里面的 ^
@@ -82,10 +90,6 @@
 ;; (setq display-time-day-and-date t);;时间显示包括日期和具体时间
 
 
-;;显示行列号
-;(setq column-number-mode t)
-;(setq line-number-mode t)
-;; (global-linum-mode t)
 
 ;;tabs用空格表示
 ;; (setq-default indent-tabs-mode nil)

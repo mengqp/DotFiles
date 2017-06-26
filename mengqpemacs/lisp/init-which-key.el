@@ -12,8 +12,39 @@
   "SPC b" "buffers")
 
 (which-key-add-key-based-replacements
+  "SPC c" "compile")
+
+(which-key-add-key-based-replacements
   "SPC f" "files")
 
+(which-key-add-key-based-replacements
+  "SPC g" "git")
 
+(which-key-add-key-based-replacements
+  "SPC p" "project")
+
+(which-key-add-key-based-replacements
+  "SPC w" "window")
+
+(which-key-add-key-based-replacements
+  "SPC x" "delete")
+
+(which-key-add-key-based-replacements
+  ", e" "errors/eval")
+
+(which-key-add-key-based-replacements
+  ", f" "function")
+
+(which-key-add-key-based-replacements
+  ", g" "goto")
+
+(which-key-add-key-based-replacements
+  ", h" "help")
+
+(which-key-add-key-based-replacements
+  ", j" "jump")
+
+(which-key-add-key-based-replacements
+  ", s" "search/shell/sudo")
 
 (provide 'init-which-key)

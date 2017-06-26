@@ -5,6 +5,12 @@
   (find-file "~/.emacs.d/init.el")
     )
 
+(defun mengqp/find-readme
+  "find root/readme.org in the project"
+  (interactive)
+  (projectile-find-file "readme.org")
+    )
+
 (defun mengqp/open-init-package-file ()
   "open init package file to config"
   (interactive)

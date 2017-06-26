@@ -68,20 +68,20 @@ of an error, just add the package to a list of missing packages."
 (require 'init-hungry-delete)
 (require 'init-smartparens)
 
+(require 'init-evil)
 (require 'init-company)
 (require 'init-smex)
-(require 'init-org)
 (require 'init-window-numbering)
 (require 'init-helm)
 
 (require 'init-popwin)
 (require 'init-projectile)
-(require 'init-evil)
 (require 'init-cc-mode)
 (require 'init-yasnippet)
 (require 'init-ycmd)
 (require 'init-flycheck)
 (require 'init-ace-jump)
+(require 'init-org)
 
 
 (require 'init-modeline)
@@ -99,23 +99,4 @@ of an error, just add the package to a list of missing packages."
 
 )
 
-
-
 ;; (server-start)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(git-gutter:added-sign "++")
- '(git-gutter:deleted-sign "--")
- '(git-gutter:modified-sign "  ")
- '(package-selected-packages
-   (quote
-    (flycheck-pos-tip evil-escape evil-org evil-visualstar evil-search-highlight-persist evil-numbers evil-matchit evil-leader))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

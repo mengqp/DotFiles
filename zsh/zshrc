@@ -113,3 +113,4 @@ alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 alias n="nvim"
+alias e="emacs"
