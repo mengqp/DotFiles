@@ -80,7 +80,7 @@ But you may use safer HTTPS instead.")
 ;;------------------------------------------------------------------------------
 (package-initialize)
 
-
+(require-package 'use-package)
 (require-package 'general)
 
 (require-package 'color-theme)

@@ -104,6 +104,11 @@
 
   (define-key evil-normal-state-map (kbd "T") 'mengqp/evil-org-insert-todo-at-end)
   (define-key evil-normal-state-map (kbd "t") 'org-todo)
+
+  (evil-leader/set-key
+   ":" 'org-set-tags
+   "RET" 'org-insert-todo-heading
+   )
   )
 
 

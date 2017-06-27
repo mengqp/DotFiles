@@ -55,9 +55,9 @@
 ;; all keywords arguments are still supported
 ;; 本文件
 (nvmap :prefix ","
-       ","  'evilnc-comment-or-uncomment-lines
-       "+" 'evil-numbers/inc-at-pt
-       "-" 'evil-numbers/dec-at-pt
+       ;; ","  'evilnc-comment-or-uncomment-lines
+       ;; "+" 'evil-numbers/inc-at-pt
+       ;; "-" 'evil-numbers/dec-at-pt
 
        ;;"aa" 'copy-to-x-clipboard ; used frequently
 

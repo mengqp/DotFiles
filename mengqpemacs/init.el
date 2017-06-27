@@ -100,3 +100,17 @@ of an error, just add the package to a list of missing packages."
 )
 
 ;; (server-start)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (use-package window-numbering which-key spaceline smex smartparens realgud popwin org-projectile linum-relative hungry-delete helm-projectile helm-make helm-cscope helm-c-yasnippet helm-ag google-c-style git-gutter general flycheck-ycmd flycheck-package evil-visualstar evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-matchit evil-magit evil-leader evil-escape diminish company-ycmd color-theme-solarized ace-jump-mode ace-jump-helm-line))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
