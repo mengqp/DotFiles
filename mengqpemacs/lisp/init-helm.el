@@ -4,20 +4,32 @@
 (require 'helm)
 (require 'helm-config)
 
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "M-x") #'helm-M-x)
-(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-(global-set-key (kbd "C-x C-f") #'helm-find-files)
+(use-package helm
+  :init
+  (setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
+	helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
+	helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
+	helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
+	helm-ff-file-name-history-use-recentf t
+	helm-echo-input-in-header-line t)
 
-(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
-(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+  :bind
+  (helm-autoresize-mode 1)
+  (helm-mode 1)
+  (
+   ("M-x" . helm-M-x)
+   ;; ("<tab>" . helm-execute-persistent-action)
+   ("C-z" . helm-select-action)
+   )
+  :config
+  (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
+  ;; (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+  ;; (global-set-key (kbd "C-x C-f") #'helm-find-files)
+  ;; (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+  )
 
-(setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
-      helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
-      helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
-      helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
-      helm-ff-file-name-history-use-recentf t
-      helm-echo-input-in-header-line t)
+
+
 
 (defun mengqp//helm-hide-minibuffer-maybe ()
   "Hide minibuffer in Helm session if we use the header line as input field."
@@ -35,8 +47,6 @@
 
 (setq helm-autoresize-max-height 0)
 (setq helm-autoresize-min-height 20)
-(helm-autoresize-mode 1)
-(helm-mode 1)
 
 (setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
 (setq helm-buffers-fuzzy-matching t

@@ -1,18 +1,23 @@
 (require 'company)
 
-(global-company-mode t)
-(add-hook 'after-init-hook 'global-company-mode)
+(use-package company
+  :init
+  (add-hook 'after-init-hook 'global-company-mode)
+  ;; 设置等待时间
+  (setq company-idle-delay 0.08)
+  ;; 补全起始长度
+  (setq company-minimum-prefix-length 2)
 
-;; 设置等待时间
-(setq company-idle-delay 0.08)
-;; 补全起始长度
-(setq company-minimum-prefix-length 2)
+  :config
+  (global-company-mode t)
+  (with-eval-after-load 'company
+    (define-key company-active-map (kbd "M-n") nil)
+    (define-key company-active-map (kbd "M-p") nil)
+    (define-key company-active-map (kbd "C-n") #'company-select-next)
+    (define-key company-active-map (kbd "C-p") #'company-select-previous))
+  )
 
-(with-eval-after-load 'company
-  (define-key company-active-map (kbd "M-n") nil)
-  (define-key company-active-map (kbd "M-p") nil)
-  (define-key company-active-map (kbd "C-n") #'company-select-next)
-  (define-key company-active-map (kbd "C-p") #'company-select-previous))
+
 
 ;;颜色
 ;; (require 'color)
