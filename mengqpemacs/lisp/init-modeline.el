@@ -14,7 +14,7 @@
                                 (- (+ right right-fringe right-margin) ,reserve)))
               'face face))
 
-(defun zilongshanren/display-mode-indent-width ()
+(defun mengqp/display-mode-indent-width ()
     (let ((mode-indent-level
            (catch 'break
              (dolist (test spacemacs--indent-variable-alist)
@@ -105,6 +105,9 @@
                  ;; the current major mode for the buffer.
                  '(:eval (propertize "%m" 'face 'font-lock-string-face
                                      'help-echo buffer-file-coding-system))
+		 " -"
+                 '(:eval (propertize (format "%s" buffer-file-coding-system) 'face 'font-lock-string-face) )
+		 "- "
 
                  "%1 "
                  my-flycheck-mode-line
@@ -128,7 +131,7 @@
 
                  (mode-line-fill 'mode-line 20)
 
-                 '(:eval (zilongshanren/display-mode-indent-width))
+                 '(:eval (mengqp/display-mode-indent-width))
                  ;; line and column
                  " (" ;; '%02' to set to 2 chars at least; prevents flickering
                  (propertize "%02l" 'face 'font-lock-type-face) ","

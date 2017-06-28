@@ -61,6 +61,7 @@
 
        ;;"aa" 'copy-to-x-clipboard ; used frequently
 
+       "bc" 'set-buffer-file-coding-system
        "bs" 'save-buffer
 
        "eb" 'eval-buffer

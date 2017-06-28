@@ -6,16 +6,8 @@
 
 (use-package helm
   :init
-  (setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
-	helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
-	helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
-	helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
-	helm-ff-file-name-history-use-recentf t
-	helm-echo-input-in-header-line t)
 
   :bind
-  (helm-autoresize-mode 1)
-  (helm-mode 1)
   (
    ("M-x" . helm-M-x)
    ;; ("<tab>" . helm-execute-persistent-action)
@@ -29,6 +21,12 @@
   )
 
 
+  (setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
+	helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
+	helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
+	helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
+	helm-ff-file-name-history-use-recentf t
+	helm-echo-input-in-header-line t)
 
 
 (defun mengqp//helm-hide-minibuffer-maybe ()
@@ -51,6 +49,9 @@
 (setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
 (setq helm-buffers-fuzzy-matching t
       helm-recentf-fuzzy-match    t)
+
+(helm-autoresize-mode 1)
+(helm-mode 1)
 
 (add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
 
