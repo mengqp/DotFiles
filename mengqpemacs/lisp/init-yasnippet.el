@@ -1,7 +1,10 @@
 ;; (require 'yasnippet)
 
 
-(add-hook 'prog-mode-hook #'yas-minor-mode)
+;; (add-hook 'prog-mode-hook #'yas-minor-mode)
+(add-hook 'org-mode-hook #'yas-minor-mode)
+(add-hook 'c-mode-hook #'yas-minor-mode)
+(add-hook 'c++-mode-hook #'yas-minor-mode)
 
 (with-eval-after-load 'yasnippet
   (message "yasnippet")
@@ -140,6 +143,9 @@
   (define-key yas-keymap (kbd "TAB") 'tab-complete-or-next-field)
   (define-key yas-keymap [(control tab)] 'yas-next-field)
   (define-key yas-keymap (kbd "C-g") 'abort-company-or-yas)
+
+  (define-key evil-insert-state-map (kbd "M-j") 'yas-expand)
+  (define-key evil-emacs-state-map (kbd "M-j") 'yas-expand)
 
   )
 

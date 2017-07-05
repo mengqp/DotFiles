@@ -2,13 +2,13 @@
 
 (use-package company
   :init
-  (add-hook 'after-init-hook 'global-company-mode)
+  ;; (add-hook 'after-init-hook 'global-company-mode)
+
+  :config
   ;; 设置等待时间
   (setq company-idle-delay 0.08)
   ;; 补全起始长度
   (setq company-minimum-prefix-length 2)
-
-  :config
   (global-company-mode t)
   (with-eval-after-load 'company
     (define-key company-active-map (kbd "M-n") nil)

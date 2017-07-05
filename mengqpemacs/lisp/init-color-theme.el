@@ -1,11 +1,15 @@
-(require 'color-theme)
+;; (require 'color-theme)
 
-(use-package color-theme
-  :init
-  (require 'color-theme-solarized)
-  (load-theme 'solarized t)
-  (set-frame-parameter nil 'background-mode 'dark)    ;;选择solarized dark
-  (enable-theme 'solarized)
-    )
+;; (use-package color-theme
+;;   :init
+;;   ;; (require 'color-theme-solarized)
+;;   ;; (load-theme 'solarized t)
+;;   ;; (set-frame-parameter nil 'background-mode 'dark)    ;;选择solarized dark
+;;   ;; (enable-theme 'solarized)
+;;   (require 'spacemacs-theme)
+;;   (load-theme 'spacemacs-dark t)
+;;     )
+;; (require 'spacemacs-theme)
+(load-theme 'spacemacs-dark t)
 
 (provide 'init-color-theme)

@@ -1,0 +1,57 @@
+
+;; ----- smex-history -----
+(
+ menu-bar-mode
+ yas-expand
+ yas/minor-mode-on
+ yas/expand
+ yas-minor-mode
+ yas-expand-from-trigger-key
+ helm-yas-complete
+)
+
+;; ----- smex-data -----
+(
+ (counsel-recentf . 1)
+ (ivy-mode . 2)
+ (counsel-git . 3)
+ (counsel-ag . 1)
+ (counsel-expression-history . 2)
+ (counsel-locate . 1)
+ (swiper . 1)
+ (ivy-resume . 4)
+ (counsel-describe-function . 3)
+ (counsel-info-lookup-symbol . 1)
+ (counsel-git-log . 1)
+ (counsel-git-grep . 2)
+ (counsel-imenu . 1)
+ (ivy-imenu-goto . 7)
+ (ivy-avy . 2)
+ (cscope-find-global-definition . 1)
+ (linum-mode . 2)
+ (ivy-recentf . 1)
+ (recentf-mode . 5)
+ (recentf-open-most-recent-file-0 . 1)
+ (recentf-open-files . 1)
+ (counsel-projectile-find-file . 2)
+ (counsel-projectile-switch-to-buffer . 2)
+ (counsel-projectile-find-dir . 1)
+ (ivy-todo . 4)
+ (ivy-toggle-calling . 4)
+ (flycheck-mode . 1)
+ (font-lock-mode . 2)
+ (cfs-decrease-fontsize . 4)
+ (cfs-insert-fontname . 1)
+ (cfs-increase-fontsize . 5)
+ (cfs-edit-profile . 3)
+ (set-language-environment . 3)
+ (c-mode . 2)
+ (yas-reload-all . 2)
+ (yas-expand . 8)
+ (helm-yas-complete . 1)
+ (yas-expand-from-trigger-key . 2)
+ (yas-minor-mode . 2)
+ (yas/expand . 5)
+ (yas/minor-mode-on . 1)
+ (menu-bar-mode . 2)
+)

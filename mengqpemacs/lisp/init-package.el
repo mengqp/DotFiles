@@ -6,58 +6,12 @@
   "By default, HTTP is used to download packages.
 But you may use safer HTTPS instead.")
 
-;; (defvar mengqp/packages
-;;   '(
-;;     undo-tree
-;;     general
-;;     color-theme
-;;     color-theme-solarized
-;;     which-key
-;;     helm
-;;     helm-ag
-;;     helm-cscope
-;;     helm-make
-;;     projectile
-;;     helm-projectile
-;;     org-projectile
-;;     evil
-;;     evil-numbers
-;;     evil-leader
-;;     evil-visualstar
-;;     evil-search-highlight-persist
-;;     evil-matchit
-;;     evil-org
-;;     evil-escape
-;;     evil-nerd-commenter
-;;     xcscope
-;;     company
-;;     flycheck
-;;     flycheck-pos-tip
-;;     google-c-style
-;;     smex
-;;     window-numbering
-;;     ace-jump-mode
-;;     ace-jump-helm-line
-;;     smartparens
-;;     flymake
-;;     hungry-delete
-;;     popwin
-;;     powerline
-;;     yasnippet
-;;     ycmd
-;;     company-ycmd
-;;     flycheck-ycmd
-;;     magit
-;;     evil-magit
-;;     git-gutter
-;;     realgud
-;;     ))
 
 (setq package-archives '(
-			 ;; ("melpa-cn" . "https://elpa.zilongshanren.com/melpa/")
-                         ;;  ("org-cn"   . "https://elpa.zilongshanren.com/org/")
-                         ;;  ("gnu-cn"   . "https://elpa.zilongshanren.com/gnu/")
-                          ("melpa" . "https://melpa.org/packages/")
+			 ("melpa-cn" . "https://elpa.zilongshanren.com/melpa/")
+                          ;; ("org-cn"   . "https://elpa.zilongshanren.com/org/")
+                          ;; ("gnu-cn"   . "https://elpa.zilongshanren.com/gnu/")
+                          ;; ("melpa" . "https://melpa.org/packages/")
                           ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
                           ))
 
@@ -85,9 +39,24 @@ But you may use safer HTTPS instead.")
 
 (require-package 'color-theme)
 (require-package 'color-theme-solarized)
+(require-package 'monokai-theme)
+(require-package 'zenburn-theme)
+(require-package 'spacemacs-theme)
+(require-package 'color-theme-sanityinc-tomorrow)
+
+(require-package 'chinese-fonts-setup)
+
 (require-package 'linum-relative)
 
 (require-package 'which-key)
+
+
+(require-package 'ivy)
+(require-package 'counsel)
+(require-package 'swiper)
+(require-package 'counsel-projectile)
+(require-package 'ivy-todo)
+
 
 (require-package 'helm)
 (require-package 'helm-ag)
@@ -149,24 +118,7 @@ But you may use safer HTTPS instead.")
 (require-package 'package-lint)
 (require-package 'helm-c-yasnippet)
 
-
-
-;; (defun mengqp/packages-install ()
-;;   (cl-loop for pkg in mengqp/packages
-;;            when (not (package-installed-p pkg))
-;;            do (return nil)
-;;            finally (return t)
-;;            ))
-
-;; (unless (mengqp/packages-install)
-;;   (message "%s" "Refreshing package database...")
-;;   (package-refresh-contents)
-;;   (dolist (pkg mengqp/packages)
-;;     (when (not (mengqp/package-install pkg))
-;;       (require-package pkg))))
-
-
-
+(require-package 'exec-path-from-shell)
 
 (provide 'init-package)
 

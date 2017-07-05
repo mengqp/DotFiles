@@ -114,3 +114,4 @@ alias zshconfig="mate ~/.zshrc"
 #
 alias n="nvim"
 alias e="emacs"
+alias ed="emacs --debug-init"

@@ -4,7 +4,8 @@
 ;; all keywords arguments are still supported
 ;; 全局
 (nvmap :prefix "SPC"
-       "SPC" 'helm-M-x
+       ;; "SPC" 'helm-M-x
+       "SPC" 'counsel-M-x
         "1" 'select-window-1
         "2" 'select-window-2
         "3" 'select-window-3
@@ -18,19 +19,24 @@
 	"ac" 'helm-calcul-expression
 
         ;; "bb" 'helm-buffers-list
-	"bb" 'helm-mini
+	;; "bb" 'helm-mini
+	"bb" 'ivy-switch-buffer
         "bd" 'kill-buffer
+	"TAB" 'previous-buffer
 
-        "cc" 'helm-make-projectile
+        ;; "cc" 'helm-make-projectile
         "cC" 'compile
-        "cm" 'helm-make
+        ;; "cm" 'helm-make
         "ck" 'kill-compilation
         "cr" 'recompile
         "cd" 'mengqp/close-compilation-window
 
-        "ff" 'helm-find-files  ;;
-	"f/" 'helm-find
-        "fr" 'helm-recentf  ;;
+        ;; "ff" 'helm-find-files  ;;
+        "ff" 'counsel-find-file  ;;
+	;; "f/" 'helm-find
+	;; "f/" 'counsel-find
+        ;; "fr" 'helm-recentf  ;;
+        "fr" 'counsel-recentf  ;;
         "fdi" 'mengqp/open-init-file
         "fdp" 'mengqp/open-init-package-file
         "fdk" 'mengqp/open-init-keymap-file
@@ -38,8 +44,8 @@
         "gs" 'magit-status
 
 
-        "pf" 'projectile-find-file
-        "pd" 'find-directory-in-project-by-selected
+        "pf" 'counsel-projectile-find-file
+        "pd" 'counsel-projectile-find-dir
 	"po" 'org-projectile:project-todo-completing-read
 
         "ws" 'split-window-vertically
@@ -48,7 +54,9 @@
         "x0" 'delete-window
         "x1" 'delete-other-windows
 
-        "/" 'helm-do-ag-project-root
+        ;; "/" 'helm-do-ag-project-root
+        ;; "/" 'counsel-git-find-my-file
+        "/" 'counsel-projectile-ag
        )
 
 ;; {{ Use `SPC` as leader key
@@ -93,14 +101,19 @@
        "jw" 'ace-jump-word-mode
        "jl" 'ace-jump-line-mode
 
+       "ls" 'linum-mode
+
        "mk" 'bookmark-set
        "mm" 'counsel-bookmark-goto
 
 
        "sc" 'shell-command
        "sd" 'sudo-edit
-       "sj" 'mengqp/helm-jump-in-buffer
-       "ss" 'mengqp/helm-file-smart-do-search
+       ;; "sj" 'mengqp/helm-jump-in-buffer
+       "sj" 'counsel-imenu
+       ;; "ss" 'mengqp/helm-file-smart-do-search
+       "ss" 'swiper
+       "sS" 'ivy-resume
 
        "yy" 'helm-yas-complete
 

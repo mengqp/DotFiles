@@ -1,6 +1,15 @@
 ;;这就一个进行基本配置的文件
 (require 'init-coding)
 (require 'unicad)
+(require 'chinese-fonts-setup)
+
+;; (use-package chinese-fonts-setup
+;;   :config
+;;   ;; 让 chinese-fonts-setup 随着 emacs 自动生效。
+;;   (chinese-fonts-setup-enable)
+;;   ;; 让 spacemacs mode-line 中的 Unicode 图标正确显示。
+;;   (cfs-set-spacemacs-fallback-fonts)
+;;   )
 
 ;; 去除一个警告
 (setq exec-path-from-shell-check-startup-files nil)
@@ -21,12 +30,12 @@
 ;; 设置相对行数 我的电脑有点卡
 ;;显示行列号
 ;(setq column-number-mode t)
-(require 'linum-relative)
+;; (require 'linum-relative)
 ;; (linum-mode t)
 ;; (setq line-number-mode t)
-(global-linum-mode t)
-(linum-on)
-(linum-relative-on)
+;; (global-linum-mode t)
+;; (linum-on)
+;; (linum-relative-on)
 ;; (setq-default dotspacemacs-line-numbers 'relative)
 
 ; 去除 M-x 里面的 ^
@@ -107,16 +116,16 @@
 
 ;;当前行高亮
 (global-hl-line-mode 1)
-(set-face-background 'hl-line "#3e4446")
+;; (set-face-background 'hl-line "#3e4446")
 
 
 ;; 以 y/n代表 yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; 最近的文件
-(require 'recentf)
-(recentf-mode 1)
-(setq recentf-max-menu-items 10000)
+;; (require 'recentf)
+;; (recentf-mode 1)
+;; (setq recentf-max-menu-items 1000)
 
 ;;设置字体
 ;; (set-default-font "Courier New-14")

@@ -1,7 +1,48 @@
-;; @see http://emacs-fu.blogspot.com/2011/08/customizing-mode-line.html
-;; But I need global-mode-string,
-;; @see http://www.delorie.com/gnu/docs/elisp-manual-21/elisp_360.html
-;; use setq-default to set it for /all/ modes
+;; ;; @see http://emacs-fu.blogspot.com/2011/08/customizing-mode-line.html
+;; ;; But I need global-mode-string,
+;; ;; @see http://www.delorie.com/gnu/docs/elisp-manual-21/elisp_360.html
+;; ;; use setq-default to set it for /all/ modes
+  (defun zilongshanren/update-persp-name ()
+    (when (bound-and-true-p persp-mode)
+      ;; There are multiple implementations of
+      ;; persp-mode with different APIs
+      (progn
+             (or (not (string= persp-nil-name (safe-persp-name (get-frame-persp))))
+                 "Default")
+             (let ((name (safe-persp-name (get-frame-persp))))
+               (propertize (concat "[" name "] ")
+                           'face 'font-lock-preprocessor-face
+                           'help-echo "Current Layout name.")))))
+
+
+  (defun spaceline--unicode-number (str)
+    "Return a nice unicode representation of a single-digit number STR."
+    (cond
+     ((string= "1" str) "➊")
+     ((string= "2" str) "➋")
+     ((string= "3" str) "➌")
+     ((string= "4" str) "➍")
+     ((string= "5" str) "➎")
+     ((string= "6" str) "➏")
+     ((string= "7" str) "➐")
+     ((string= "8" str) "➑")
+     ((string= "9" str) "➒")
+     ((string= "0" str) "➓")))
+
+  (defun window-number-mode-line ()
+    "The current window number. Requires `window-numbering-mode' to be enabled."
+    (when (bound-and-true-p window-numbering-mode)
+      (let* ((num (window-numbering-get-number))
+             (str (when num (int-to-string num))))
+        (spaceline--unicode-number str))))
+
+
+  (defun buffer-encoding-abbrev ()
+    "The line ending convention used in the buffer."
+    (let ((buf-coding (format "%s" buffer-file-coding-system)))
+      (if (string-match "\\(dos\\|unix\\|mac\\)" buf-coding)
+          (match-string 1 buf-coding)
+        buf-coding)))
 
 (defun mode-line-fill (face reserve)
   "Return empty space using FACE and leaving RESERVE space on the right."
@@ -34,23 +75,23 @@
       (concat "TS:" (int-to-string (or mode-indent-level 0)))))
 
   (setq my-flycheck-mode-line
-        '(:eval
-          (pcase flycheck-last-status-change
-            ((\` not-checked) nil)
-            ((\` no-checker) (propertize " -" 'face 'warning))
-            ((\` running) (propertize " ✷" 'face 'success))
-            ((\` errored) (propertize " !" 'face 'error))
-            ((\` finished)
-             (let* ((error-counts (flycheck-count-errors flycheck-current-errors))
-                    (no-errors (cdr (assq 'error error-counts)))
-                    (no-warnings (cdr (assq 'warning error-counts)))
-                    (face (cond (no-errors 'error)
-                                (no-warnings 'warning)
-                                (t 'success))))
-               (propertize (format "[%s/%s]" (or no-errors 0) (or no-warnings 0))
-                           'face face)))
-            ((\` interrupted) " -")
-            ((\` suspicious) '(propertize " ?" 'face 'warning)))))
+	'(:eval
+	  (pcase flycheck-last-status-change
+	    ((\` not-checked) nil)
+	    ((\` no-checker) (propertize " -" 'face 'warning))
+	    ((\` running) (propertize " ✷" 'face 'success))
+	    ((\` errored) (propertize " !" 'face 'error))
+	    ((\` finished)
+	     (let* ((error-counts (flycheck-count-errors flycheck-current-errors))
+		    (no-errors (cdr (assq 'error error-counts)))
+		    (no-warnings (cdr (assq 'warning error-counts)))
+		    (face (cond (no-errors 'error)
+				(no-warnings 'warning)
+				(t 'success))))
+	       (propertize (format "[%s/%s]" (or no-errors 0) (or no-warnings 0))
+			   'face face)))
+	    ((\` interrupted) " -")
+	    ((\` suspicious) '(propertize " ?" 'face 'warning)))))
 
   (setq-default mode-line-misc-info
                 (assq-delete-all 'which-func-mode mode-line-misc-info))
@@ -63,9 +104,9 @@
                           'face
                           'font-lock-type-face))
                  " "
-                 ;; '(:eval (zilongshanren/update-persp-name))
+                 '(:eval (zilongshanren/update-persp-name))
 
-                 "%1 "
+                 ;; "%1 "
                  ;; the buffer name; the file name as a tool tip
                  '(:eval (propertize "%b " 'face 'font-lock-keyword-face
                                      'help-echo (buffer-file-name)))
@@ -131,15 +172,15 @@
 
                  (mode-line-fill 'mode-line 20)
 
-                 '(:eval (mengqp/display-mode-indent-width))
+                 ;; '(:eval (mengqp/display-mode-indent-width))
                  ;; line and column
                  " (" ;; '%02' to set to 2 chars at least; prevents flickering
                  (propertize "%02l" 'face 'font-lock-type-face) ","
                  (propertize "%02c" 'face 'font-lock-type-face)
                  ") "
 
-                 '(:eval (when (> (window-width) 80)
-                           (buffer-encoding-abbrev)))
+                 ;; '(:eval (when (> (window-width) 80)
+                 ;;           (buffer-encoding-abbrev)))
                  mode-line-end-spaces
                  ;; add the time, with the date and the emacs uptime in the tooltip
                  '(:eval (propertize (format-time-string "%H:%M")
@@ -147,6 +188,8 @@
                                      (concat (format-time-string "%c; ")
                                              (emacs-uptime "Uptime:%hh"))))
                  ))
+
+
 
 ;; (require 'diminish)
 ;; (defvar mengqp/diminish-list
