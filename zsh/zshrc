@@ -102,6 +102,19 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # export QMAKESPEC=/opt/qt-everywhere-opensource-src-4.7.3/mkspecs/qws/linux-arm-gnueabi-g++
 # export PATH=/opt/arm-2011.03/bin/:$PATH
 
+### qt ###
+export QMAKESPEC=/usr/share/qt4/mkspecs/qws/linux-x86_64-g++
+
+
+# 库的路径
+export  LD_LIBRARY_PATH=/usr/lib32/:/usr/lib/:/lib/$LD_LIBRARY_PATH
+
+# 头文件
+# C
+# CPP
+# export CPLUS_INCLUDE_PATH=/usr/include/c++/7.2.0:$CPLUS_INCLUDE_PATH
+# export C_INCLUDE_PATH=/usr/include/c++/7.2.0:$C_INCLUDE_PATH
+
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
