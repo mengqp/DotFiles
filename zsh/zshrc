@@ -78,21 +78,21 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=$PATH:/Users/foocoder/.rvm/gems/ruby-1.9.3-p392/bin:/Users/foocoder/.rvm/gems/ruby-1.9.3-p392@global/bin:/Users/foocoder/.rvm/rubies/ruby-1.9.3-p392/bin:/Users/foocoder/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/local/sbin:/Users/foocoder/bin
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/share/npm/bin:$PATH
-export PATH=/Users/foocoder/develop/apache-tomcat-7.0.37/bin:$PATH
-export PATH=/Users/foocoder/develop/android-sdk-macosx/platform-tools:$PATH
-export PATH=/usr/local/nginx/nginx8011/sbin:$PATH
-export PATH=/Users/foocoder/develop/github/git-imerge:$PATH
-export PATH=/Users/foocoder/develop/dart/dart-sdk/bin:$PATH
-export DART_SDK=/Users/foocoder/develop/dart/dart-sdk/
-export LC_CTYPE="zh_CN.UTF-8"
+# export PATH=/usr/local/bin:$PATH
+# export PATH=/usr/local/share/npm/bin:$PATH
+# export PATH=/Users/foocoder/develop/apache-tomcat-7.0.37/bin:$PATH
+# export PATH=/Users/foocoder/develop/android-sdk-macosx/platform-tools:$PATH
+# export PATH=/usr/local/nginx/nginx8011/sbin:$PATH
+# export PATH=/Users/foocoder/develop/github/git-imerge:$PATH
+# export PATH=/Users/foocoder/develop/dart/dart-sdk/bin:$PATH
+# export DART_SDK=/Users/foocoder/develop/dart/dart-sdk/
+# export LC_CTYPE="zh_CN.UTF-8"
 #vim mode
 #bindkey -v
 
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+# export PATH="/usr/local/heroku/bin:$PATH"
 
 ### qt4-6-3###
 #export QMAKESPEC=/opt/qt-4.6.3/mkspecs/qws/linux-arm-g++
@@ -103,11 +103,11 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # export PATH=/opt/arm-2011.03/bin/:$PATH
 
 ### qt ###
-export QMAKESPEC=/usr/share/qt4/mkspecs/qws/linux-x86_64-g++
+# export QMAKESPEC=/usr/share/qt4/mkspecs/qws/linux-x86_64-g++
 
 
 # 库的路径
-export  LD_LIBRARY_PATH=/usr/lib32/:/usr/lib/:/lib/$LD_LIBRARY_PATH
+# export  LD_LIBRARY_PATH=/usr/lib32/:/usr/lib/:/lib/$LD_LIBRARY_PATH
 
 # 头文件
 # C
