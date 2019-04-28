@@ -1,0 +1,22 @@
+#+TITLE: tmux
+#+STYLE: <link rel="stylesheet" type="text/css" href="" />
+#+OPTIONS: ^:nil
+#+AUTHOR: mengqp
+
+* Table of Contents                                         :TOC_4_org:noexport:
+- [[来源][来源]]
+- [[修改][修改]]
+  - [[将C-a 改为 C-x 与emacs 一致][将C-a 改为 C-x 与emacs 一致]]
+  - [[增加bind-key 2 和 bind-key 3 桌面操作][增加bind-key 2 和 bind-key 3 桌面操作]]
+  - [[增加bind-key 2 和 bind-key 3 桌面操作][增加bind-key 2 和 bind-key 3 桌面操作]]
+
+* 来源
+  https://github.com/tony/tmux-config.git
+
+* 修改
+
+** 将C-a 改为 C-x 与emacs 一致
+
+** 增加bind-key 2 和 bind-key 3 桌面操作
+
+** 增加bind-key 2 和 bind-key 3 桌面操作

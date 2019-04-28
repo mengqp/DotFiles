@@ -1,0 +1,9 @@
+#+TITLE: xrxvtconfig
+#+STYLE: <link rel="stylesheet" type="text/css" href="" />
+#+OPTIONS: ^:nil
+#+AUTHOR: mengqp
+
+* Table of Contents                                         :TOC_4_org:noexport:
+- [[此文件是用yaourt -S xrxvtconfig 配置产生的][此文件是用yaourt -S xrxvtconfig 配置产生的]]
+
+* 此文件是用yaourt -S xrxvtconfig 配置产生的
