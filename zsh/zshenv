@@ -5,4 +5,4 @@
 export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/local/sbin
 # export PATH=/usr/local/share/npm/bin:$PATH
 # export PATH=/usr/local/nginx/nginx8011/sbin:$PATH
-export LC_CTYPE="zh_CN.UTF-8"
+# export LC_CTYPE="zh_CN.UTF-8"

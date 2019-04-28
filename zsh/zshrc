@@ -86,7 +86,8 @@ export PATH=$PATH:/Users/foocoder/.rvm/gems/ruby-1.9.3-p392/bin:/Users/foocoder/
 # export PATH=/Users/foocoder/develop/github/git-imerge:$PATH
 # export PATH=/Users/foocoder/develop/dart/dart-sdk/bin:$PATH
 # export DART_SDK=/Users/foocoder/develop/dart/dart-sdk/
-# export LC_CTYPE="zh_CN.UTF-8"
+export LC_CTYPE="zh_CN.UTF-8"
+
 #vim mode
 #bindkey -v
 
@@ -101,6 +102,11 @@ export PATH=$PATH:/Users/foocoder/.rvm/gems/ruby-1.9.3-p392/bin:/Users/foocoder/
 ### qt4-7-3###
 # export QMAKESPEC=/opt/qt-everywhere-opensource-src-4.7.3/mkspecs/qws/linux-arm-gnueabi-g++
 # export PATH=/opt/arm-2011.03/bin/:$PATH
+
+
+### qt4-8-3###
+# export QMAKESPEC=/opt/qt-arm-4.8.3/mkspecs/qws/linux-omapl138-g++
+# export PATH=/opt/arm-2009q1/bin/:$PATH
 
 ### qt ###
 # export QMAKESPEC=/usr/share/qt4/mkspecs/qws/linux-x86_64-g++
