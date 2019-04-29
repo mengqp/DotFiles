@@ -52,7 +52,8 @@ bindsym $mod+Return exec urxvt -e tmux
 
 # 壁纸
 # exec_always --no-startup-id feh --bg-scale "/root/DotFiles/mengqp-arch.jpg"
-exec_always --no-startup-id feh --bg-scale "/root/nutdata/linux/DotFiles/zentree.png"
+# exec_always --no-startup-id feh --bg-scale "/root/nutdata/linux/DotFiles/cortana.png"
+exec_always --no-startup-id feh --bg-center "/root/nutdata/linux/DotFiles/zentree169.png"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -188,7 +189,7 @@ exec VBoxClient-all
 exec nutstore
 # exec --no-startup-id urxvt -e tmux
 # 设置透明
-# exec xcompmgr -c &
+exec xcompmgr -c &
 # .devilspie 具体设置
 # exec devilspie -a &
 #exec /home/mengqp/srcp/nutstore/dist/bin/nutstore-pydaemon.py

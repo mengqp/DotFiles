@@ -35,11 +35,10 @@ URxvt*scrollBar:         true
 URxvt*scrollBar_right:   true
 
 URxvt*transparent:       true
-URxvt*shading:       10
+URxvt*shading:       15
 
 URxvt.font: xft:Source Code Pro:pixelsize=18
 URxvt.letterSpace: 0
 
 *antialias:  true
 *autohint:   true
-
