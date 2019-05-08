@@ -6,6 +6,10 @@ xrdb -load .Xresources
 nm-applet &
 
 exec i3
+
+# /root/.mount.sh
+# exec /root/.mount.sh
+
 # exec startxfce4
 # export DESKTOP_SESSION=LXDE
 # exec startlxde

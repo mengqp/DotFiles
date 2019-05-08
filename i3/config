@@ -15,8 +15,8 @@ set $mod Mod4
 # is used in the bar {} block below. ISO 10646 = Unicode
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 #font -wenquanyi-wenquanyi bitmap song-medium-r-normal--12-120-75-75-p-119-iso10646-1
-font xft:monaco 10
-# font xft:文泉驿等宽正黑:size=12:style=Regular:antialias=true
+# font xft:monaco 10
+font xft:文泉驿等宽正黑:size=12:style=Regular:antialias=true
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
@@ -27,8 +27,14 @@ font xft:monaco 10
 floating_modifier $mod
 
 # 自定义
-bindsym $mod+c exec chromium
+# bindsym $mod+c exec chromium
 bindsym $mod+shift+p exec pcmanfm
+
+# new_window normal|none|pixel
+# new_window normal|pixel <px>
+# new_float normal|none|pixel
+# new_float normal|pixel <px>
+new_window none
 # 无边框：$mod+u
 # 普通模式：$mod+t
 bindsym $mod+t border normal
@@ -68,7 +74,7 @@ bindsym $mod+d exec dmenu_run
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
-bindsym $mod+l focus up
+# bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
@@ -80,7 +86,7 @@ bindsym $mod+Right focus right
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
+# bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
@@ -112,18 +118,33 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# bar toggle, hide or show
+bindsym $mod+m bar mode toggle
+
+# printscreen--scrot(Print=PrtSc/PrintScreen)
+bindsym $mod+Print exec scrot
+
+# browsers--firefox
+bindsym $mod+Shift+f exec firefox
+
+
 # Workspace names
-workspace "1:shell" output VGA-1
-workspace "2:emacs" output VGA-1
-workspace "3:web" output VGA-1
+# workspace "1:shell" output VGA-1
+# workspace "2:emacs" output VGA-1
+# workspace "3:web" output VGA-1
+assign [class="shell"] 1
+assign [class="emacs"] 2
+assign [class="web"] 3
+
+bindsym $mod+Tab workspace next
 
 # switch to workspace
-bindsym $mod+1 workspace 1 : shell
-bindsym $mod+2 workspace 2 : emacs
-bindsym $mod+3 workspace 3 : web
-# bindsym $mod+1 workspace 1
-# bindsym $mod+2 workspace 2
-# bindsym $mod+3 workspace 3
+# bindsym $mod+1 workspace 1 : shell
+# bindsym $mod+2 workspace 2 : emacs
+# bindsym $mod+3 workspace 3 : web
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
@@ -133,12 +154,12 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1 : shell
-bindsym $mod+Shift+2 move container to workspace 2 : emacs
-bindsym $mod+Shift+3 move container to workspace 3 : web
-# bindsym $mod+Shift+1 move container to workspace 1
-# bindsym $mod+Shift+2 move container to workspace 2
-# bindsym $mod+Shift+3 move container to workspace 3
+# bindsym $mod+Shift+1 move container to workspace 1 : shell
+# bindsym $mod+Shift+2 move container to workspace 2 : emacs
+# bindsym $mod+Shift+3 move container to workspace 3 : web
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
@@ -153,6 +174,9 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+for_window [class="Gimp"] floating enable
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -198,6 +222,8 @@ exec xcompmgr -c &
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+# i3bar 有三种显示模式（dock 停靠, hide 隐藏, invisible 无形），dock 一直显示，hide 通过按键显示和隐藏，invisible 强制隐藏。
+        mode hide
 	position top
 	i3bar_command i3bar
         status_command conky -c ~/.conkyrc
