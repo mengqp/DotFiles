@@ -28,7 +28,9 @@ floating_modifier $mod
 
 # 自定义
 # bindsym $mod+c exec chromium
-bindsym $mod+shift+p exec pcmanfm
+Bindsym $mod+shift+p exec --no-startup-id pcmanfm
+Bindsym $mod+shift+e exec --no-startup-id emacs
+
 
 # new_window normal|none|pixel
 # new_window normal|pixel <px>
@@ -52,7 +54,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # start a terminal
-bindsym $mod+Return exec urxvt -e tmux
+bindsym $mod+Return exec --no-startup-id urxvt -e tmux
 # exec --no-startup-id compton -b #开机自启
 # bindsym $mod+Return exec urxvt -sh 40 #透明参数 0-100
 
@@ -65,7 +67,7 @@ exec_always --no-startup-id feh --bg-center "/root/nutdata/linux/DotFiles/zentre
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec --no-startup-id dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -122,19 +124,19 @@ bindsym $mod+a focus parent
 bindsym $mod+m bar mode toggle
 
 # printscreen--scrot(Print=PrtSc/PrintScreen)
-bindsym $mod+Print exec scrot
+bindsym $mod+Print exec --no-startup-id scrot
 
 # browsers--firefox
-bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+f exec --no-startup-id firefox
 
 
 # Workspace names
 # workspace "1:shell" output VGA-1
 # workspace "2:emacs" output VGA-1
 # workspace "3:web" output VGA-1
-assign [class="shell"] 1
-assign [class="emacs"] 2
-assign [class="web"] 3
+# assign [class="shell"] 1
+# assign [class="emacs"] 2
+# assign [class="web"] 3
 
 bindsym $mod+Tab workspace next
 
@@ -173,7 +175,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 for_window [class="Gimp"] floating enable
 
@@ -208,12 +210,17 @@ bindsym $mod+r mode "resize"
 # 隐影效果
 # exec --no-startup-id compton -b
 exec --no-startup-id fcitx
-exec fc-match
-exec VBoxClient-all
-exec nutstore
+exec --no-startup-id fc-match
+exec --no-startup-id VBoxClient-all
+exec --no-startup-id nutstore
 # exec --no-startup-id urxvt -e tmux
 # 设置透明
-exec xcompmgr -c &
+exec --no-startup-id xcompmgr -c &
+
+exec --no-startup-id i3-msg 'workspace 1; exec urxvt -e tmux'
+exec --no-startup-id i3-msg 'workspace 2; exec emacs'
+exec --no-startup-id i3-msg 'workspace 3; exec firefox'
+exec --no-startup-id i3-msg 'workspace 4; exec pcmanfm'
 # .devilspie 具体设置
 # exec devilspie -a &
 #exec /home/mengqp/srcp/nutstore/dist/bin/nutstore-pydaemon.py
